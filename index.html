@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DerpK | Game Playtester and QA Portfolio</title>
+<meta name="description" content="DerpK is a game playtester on Android, iOS and PC. Structured bug reports, recorded gameplay commentary and written feedback for game developers.">
+<meta property="og:title" content="DerpK | Game Playtester and QA Portfolio">
+<meta property="og:description" content="Bug reports, recorded commentary and written feedback for game developers.">
+<meta name="theme-color" content="#0b111b">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%2339d5de%22/><text x=%2216%22 y=%2224%22 font-size=%2222%22 font-weight=%22900%22 text-anchor=%22middle%22 fill=%22%23202344%22>D</text></svg>">
+<style>
+:root{--bg:#0b111b;--ink:#202344;--card:#121a28;--line:#1f2b3f;--txt:#f3f0f0;--mut:#a9b4c8;--a:#39d5de;--a2:#20b7c6;--a3:#83e8ec}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--txt);font:17px/1.65 "Segoe UI",system-ui,-apple-system,Roboto,sans-serif}
+a{color:var(--a3)}
+.wrap{max-width:1040px;margin:auto;padding:0 22px}
+section{padding:68px 0;border-top:1px solid var(--line)}
+h1,h2,h3{line-height:1.15;margin:0 0 .4em;letter-spacing:-.01em}
+h2{font-size:clamp(1.7rem,3.5vw,2.3rem);font-weight:800}
+h3{font-size:1.1rem}
+p{margin:0 0 .8em}
+.lead{color:var(--mut);max-width:60ch}
+.meta{color:var(--mut);font-size:.92rem}
+:focus-visible{outline:3px solid var(--a3);outline-offset:3px}
+header{position:sticky;top:0;z-index:9;background:var(--bg);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-weight:900;font-size:1.25rem;color:var(--txt);text-decoration:none}
+nav ul{display:flex;gap:24px;list-style:none;margin:0;padding:0}
+nav ul a{color:var(--mut);text-decoration:none}
+nav ul a:hover{color:var(--a)}
+#menu{display:none;background:none;border:1px solid var(--line);color:var(--txt);padding:6px 12px;border-radius:8px;font:inherit}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:44px;align-items:center;padding:76px 0 84px;border:0}
+.hero h1{font-size:clamp(3.4rem,11vw,6.6rem);font-weight:900;letter-spacing:-.045em;margin:0}
+.sub{font-size:1.2rem;font-weight:600;color:var(--a);margin:.2em 0 1em}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0 28px;padding:0;list-style:none}
+.badges li{border:1px solid var(--a2);color:var(--a3);border-radius:999px;padding:2px 14px;font-size:.9rem}
+.btn{display:inline-block;background:var(--a);color:var(--bg);font:inherit;font-weight:700;padding:11px 22px;border-radius:8px;text-decoration:none;border:2px solid var(--a);cursor:pointer;margin:0 8px 8px 0}
+.btn:hover{background:var(--a3);border-color:var(--a3)}
+.btn.ghost{background:none;color:var(--a3);border-color:var(--a2)}
+.btn.ghost:hover{background:var(--card)}
+.ticket{background:var(--ink);border:1px solid var(--a2);border-left:6px solid var(--a);border-radius:6px;padding:22px}
+.ticket h3{margin:10px 0}
+.pill{display:inline-block;background:var(--txt);color:var(--bg);font-weight:700;font-size:.8rem;padding:2px 10px;border-radius:999px}
+@media(prefers-reduced-motion:no-preference){.hero h1,.hero .sub,.ticket{animation:in .7s both}.hero .sub{animation-delay:.1s}.ticket{animation-delay:.25s}}
+@keyframes in{from{opacity:0;transform:translateY(12px)}}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px;margin-top:24px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:18px;margin-top:24px;align-items:start}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.card.nda{border-style:dashed}
+.cover{aspect-ratio:16/9;display:grid;place-items:center;background:var(--bg);color:var(--a2);font-size:2rem;font-weight:900;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vbtn{border:0;width:100%;cursor:pointer;padding:0}
+.vbtn span{position:relative;font-size:2.4rem;color:var(--a)}
+iframe.cover{border:0;width:100%}
+.body{padding:16px 18px}
+.body ul{padding-left:18px;margin:6px 0 10px;color:var(--mut);font-size:.93rem}
+a.card.pad,button.card.pad{display:block;width:100%;padding:20px;text-align:left;color:inherit;font:inherit;text-decoration:none;cursor:pointer}
+a.card.pad:hover,button.card.pad:hover{border-color:var(--a)}
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;list-style:none;margin:28px 0 0;padding:0}
+.contact span{color:var(--a3);word-break:break-all}
+#filters{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+#filters button{background:none;color:var(--txt);border:1px solid var(--line);padding:6px 18px;border-radius:999px;font:inherit;cursor:pointer}
+#filters button:hover{border-color:var(--a)}
+#filters button[aria-pressed=true]{background:var(--a);color:var(--bg);border-color:var(--a);font-weight:700}
+dl{display:grid;grid-template-columns:max-content 1fr;gap:4px 16px;margin:12px 0;font-size:.93rem}
+dt{color:var(--a3);font-weight:600}
+dd{margin:0}
+ol{margin:4px 0 10px;padding-left:20px}
+.report{padding:22px}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mut);font-size:.9rem}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:48px}#menu{display:block}nav ul{display:none;position:absolute;top:60px;left:0;right:0;flex-direction:column;background:var(--bg);padding:14px 22px;gap:14px;border-bottom:1px solid var(--line)}nav ul.open{display:flex}}
+@media(max-width:520px){dl{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav aria-label="Main">
+<a class="logo" href="#home">DerpK</a>
+<button id="menu" aria-expanded="false" aria-controls="links">Menu</button>
+<ul id="links"><li><a href="#tested">Tested</a></li><li><a href="#services">Services</a></li><li><a href="#reports">Reports</a></li><li><a href="#library">Library</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li></ul>
+</nav></div></header>
+<main>
+<section class="hero wrap" id="home">
+<div>
+<h1 id="name">DerpK</h1>
+<p class="sub" id="headline"></p>
+<p class="lead" id="intro"></p>
+<ul class="badges" aria-label="Platforms I test on"><li>Android</li><li>iOS</li><li>PC</li></ul>
+<a class="btn" href="#tested">See tested games</a><a class="btn ghost" href="#contact">Get in touch</a>
+</div>
+<aside class="ticket" aria-label="Sample bug report preview">
+<span class="pill">Sample report, fictional game</span>
+<h3>[Pause menu] Back button stops responding after closing the map</h3>
+<dl><dt>Severity</dt><dd>Major</dd><dt>Reproducibility</dt><dd>4/5, often</dd><dt>Build</dt><dd>v0.3.2, Windows 11</dd></dl>
+<p class="meta">Every report includes steps, expected and actual results, and video timecodes. <a href="#reports">Read the full sample</a>.</p>
+</aside>
+</section>
+
+<section id="tested"><div class="wrap">
+<h2>Games I’ve playtested</h2>
+<p class="lead">These are projects I tested as a playtester. Games I just enjoy playing are in the Library.</p>
+<p class="meta" id="nda"></p>
+<div id="filters" role="group" aria-label="Filter by platform"></div>
+<div class="grid" id="games"></div>
+</div></section>
+
+<section id="services"><div class="wrap">
+<h2>What I can provide</h2>
+<p class="lead">I tailor each report to what you want emphasized, such as AI behavior, onboarding or one new build. Tell me your focus and I’ll structure the feedback around it.</p>
+<div class="grid">
+<article class="card"><div class="body"><h3>Bug reports</h3><p>Each report names the build and platform, rates severity and how often the bug happens, lists the steps to reproduce it, and compares expected and actual results, with screenshots or video timecodes as evidence. Developers can reproduce an issue quickly and decide what to fix first.</p></div></article>
+<article class="card"><div class="body"><h3>Gameplay recordings with commentary</h3><p>I record in high quality with OBS or NVIDIA recording and talk through what I’m doing. You hear bugs as they happen, where menus or mechanics confuse me, how performance holds up, and what I’d change.</p></div></article>
+<article class="card"><div class="body"><h3>Written feedback</h3><p>Notes on gameplay and mechanics, controls, UI and UX, performance and stability, readability and accessibility, tutorials and onboarding, progression and difficulty, and the overall player experience.</p></div></article>
+</div>
+<h3 style="margin-top:44px">Recordings with commentary</h3>
+<div class="grid" id="videos"></div>
+</div></section>
+
+<section id="reports"><div class="wrap">
+<h2>What you receive</h2>
+<p class="lead">A real feedback report summary and a sample bug report, plus the blank templates I work from.</p>
+<div class="two">
+<article class="card report">
+<h3>Kradle.ai AI mini games: feedback report</h3>
+<p>I tested the BuildWithAI and Skyblock mini games and wrote up gameplay, mechanics and AI behavior for each.</p>
+<p><b>Bugs found</b></p>
+<ul class="meta"><li>Sessions ended early and sent me back to the hub, mostly during complex build tasks.</li><li>AI players left before the session timer ran out.</li><li>AI players forgot restrictions I gave them earlier, such as no slime blocks or observers.</li></ul>
+<p><b>Suggestions</b></p>
+<ul class="meta"><li>A cleaner chat format when several AI players talk at once.</li><li>A live display of what each AI is doing, with a cancel option.</li></ul>
+<p class="meta">Each bug in the full report has steps to reproduce and expected versus actual results.</p>
+</article>
+<article class="card report">
+<span class="pill">Sample report, fictional game</span>
+<h3 style="margin-top:10px">[Pause menu] Back button stops responding after closing the map</h3>
+<dl>
+<dt>Game</dt><dd>Starlight Courier (fictional)</dd>
+<dt>Reported by</dt><dd>DerpK</dd>
+<dt>Build</dt><dd>v0.3.2</dd>
+<dt>Platform</dt><dd>PC, Windows 11</dd>
+<dt>Hardware</dt><dd>Sample specs: 6-core CPU, mid-range GPU, 16 GB RAM</dd>
+<dt>Severity</dt><dd>Major</dd>
+<dt>Reproducibility</dt><dd>4/5, often</dd>
+<dt>Pre-conditions</dt><dd>A save with at least one active delivery</dd>
+</dl>
+<p><b>Steps to reproduce</b></p>
+<ol><li>Load the sample save.</li><li>Open the pause menu, then open the map.</li><li>Close the map.</li><li>Select Back.</li><li>Observe the menu.</li></ol>
+<dl><dt>Actual</dt><dd>Back highlights but does nothing. The only way out is quitting to desktop.</dd><dt>Expected</dt><dd>Back returns to the pause menu.</dd><dt>Evidence</dt><dd>Screenshot placeholder, video timecode 00:45, no logs</dd></dl>
+</article>
+</div>
+<p style="margin-top:24px"><a class="btn ghost" href="templates/QA_BUG_REPORT.docx" download>Download the bug report template</a><a class="btn ghost" href="templates/FEEDBACK_FORM.docx" download>Download the feedback form</a></p>
+</div></section>
+
+<section id="library"><div class="wrap">
+<h2>Steam library</h2>
+<p class="lead">Games I play for fun, pulled from my Steam account. These hours show what I enjoy playing, not time spent on QA work.</p>
+<p class="meta" id="sync"></p>
+<div class="grid" id="steam"></div>
+</div></section>
+
+<section id="about"><div class="wrap">
+<h2>About me</h2>
+<p class="lead">I love games, and I’m just as curious about how they work as I am about playing them. Finding a bug, working out how to trigger it every time, and writing it up so a developer can fix it is the part of playtesting I enjoy most.</p>
+<p class="lead">I’m happy to test any genre on any platform, and I notice the small things, like a menu that takes one tap too many or a tutorial that explains too little. I share findings in writing and in recorded commentary, and I keep working to get better at both.</p>
+</div></section>
+
+<section id="contact"><div class="wrap">
+<h2>Have a game that needs testing? Let’s work together.</h2>
+<p class="lead">Message me on any of these. Tell me the platform, the build and what you want tested.</p>
+<ul class="contact">
+<li><a class="card pad" id="email" href="#"><h3>Email</h3><span></span></a></li>
+<li><button class="card pad" id="dc" type="button"><h3>Discord</h3><span aria-live="polite"></span></button></li>
+<li><a class="card pad" id="reddit" href="#"><h3>Reddit</h3><span></span></a></li>
+<li><a class="card pad" id="steamlink" href="#"><h3>Steam</h3><span>View my profile</span></a></li>
+</ul>
+</div></section>
+</main>
+<footer><div class="wrap">© <span id="yr"></span> DerpK. Game artwork belongs to its owners.</div></footer>
+<script src="data.js"></script>
+<script src="steam-data.js"></script>
+<script>
+(()=>{
+const S=window.SITE,ST=window.STEAM||{},q=s=>document.querySelector(s);
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const cover=(t,img)=>`<div class="cover" aria-hidden="true">${esc(t.split(/\s+/).slice(0,2).map(w=>w[0]).join("").toUpperCase())}${img?`<img src="${esc(img)}" alt="" loading="lazy" onerror="this.remove()">`:""}</div>`;
+q("#name").textContent=S.name;q("#headline").textContent=S.headline;q("#intro").textContent=S.intro;q("#nda").textContent=S.ndaNote;
+let f="All";
+const gm=q("#games"),fb=q("#filters");
+const draw=()=>{
+fb.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",b.textContent===f));
+gm.innerHTML=S.games.filter(g=>f==="All"||g.platforms.includes(f)).map(g=>`<article class="card">${cover(g.title,g.image)}<div class="body"><h3>${esc(g.title)}</h3><p class="meta">${[g.platforms.join(" and "),g.genre,g.period,g.status].filter(Boolean).map(esc).join" | ")}</p>${g.note?`<p class="meta">${esc(g.note)}</p>`:""}${g.description?`<p>${esc(g.description)}</p>`:""}${g.activities?`<p><b>Testing done:</b> ${esc(g.activities)}</p>`:""}${g.findings?`<ul>${g.findings.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:""}${g.link?`<p><a href="${esc(g.link)}">See the report</a></p>`:""}</div></article>`).join("")+(f==="All"?`<article class="card nda"><div class="cover" aria-hidden="true">NDA</div><div class="body"><h3>More projects under NDA</h3><p class="meta">Details can’t be shared.</p></div></article>`:"");
+};
+["All","Android","iOS","PC"].forEach(p=>{const b=document.createElement("button");b.type="button";b.textContent=p;b.onclick=()=>{f=p;draw()};fb.append(b)});
+draw();
+const vd=q("#videos");
+vd.innerHTML=S.videos.length?S.videos.map((v,i)=>`<article class="card"><button class="cover vbtn" type="button" data-i="${i}" aria-label="Play ${esc(v.title)}"><img src="https://i.ytimg.com/vi/${encodeURIComponent(v.youtube)}/hqdefault.jpg" alt=""><span>▶</span></button><div class="body"><h3>${esc(v.title)}</h3><p class="meta">${[v.game,v.platform].filter(Boolean).map(esc).join(", ")}</p><p>${esc(v.description||"")}</p></div></article>`).join(""):`<p class="meta">Sample recordings will be posted here.</p>`;
+vd.onclick=e=>{const b=e.target.closest(".vbtn");if(!b)return;const v=S.videos[b.dataset.i];b.outerHTML=`<iframe class="cover" src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(v.youtube)}?autoplay=1" title="${esc(v.title)}" allow="autoplay;encrypted-media;fullscreen" allowfullscreen></iframe>`};
+const sg=ST.games||[];
+q("#steam").innerHTML=sg.length?sg.map(g=>`<article class="card">${cover(g.name,`https://cdn.cloudflare.steamstatic.com/steam/apps/${g.appid}/header.jpg`)}<div class="body"><h3>${esc(g.name)}</h3><p class="meta">${g.hours} hours played${g.recent?`, ${g.recent} in the last two weeks`:""}</p></div></article>`).join(""):`<p class="meta">My library will appear here after the first Steam sync.</p>`;
+if(ST.updated)q("#sync").textContent="Last synced "+ST.updated+".";
+const c=S.contact;
+q("#email").href="mailto:"+c.email;q("#email span").textContent=c.email;
+q("#reddit").href="https://www.reddit.com/user/"+c.reddit;q("#reddit span").textContent="u/"+c.reddit;
+q("#steamlink").href=c.steam;
+q("#dc span").textContent=c.discord+" (select to copy)";
+q("#dc").onclick=async()=>{try{await navigator.clipboard.writeText(c.discord);q("#dc span").textContent="Copied "+c.discord}catch(e){q("#dc span").textContent=c.discord}};
+const m=q("#menu"),l=q("#links");
+m.onclick=()=>{m.setAttribute("aria-expanded",l.classList.toggle("open"))};
+l.onclick=e=>{if(e.target.tagName==="A"){l.classList.remove("open");m.setAttribute("aria-expanded","false")}};
+q("#yr").textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
